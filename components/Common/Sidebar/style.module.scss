@@ -1,0 +1,56 @@
+@import "styles/preset.scss";
+
+.sidebar__content {
+  height: 100%;
+  padding-top: 2rem;
+  background-color: var(--primary);
+  display: flex;
+  flex-direction: column;
+
+  & > h2 {
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+    line-height: 2.125rem;
+  }
+
+  & > ul {
+    margin-top: 3rem;
+    color: #fff;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+
+    & > li {
+      padding: 0.75rem 2rem;
+      cursor: pointer;
+      @include transition-colors;
+
+      &:hover {
+        background-color: var(--secondary);
+      }
+
+      &.active {
+        background-color: var(--secondary);
+      }
+    }
+  }
+
+  & > button {
+    margin-top: auto;
+    border: none;
+    outline: none;
+    padding: 1rem 0;
+    font-size: 1rem;
+    line-height: 1.125rem;
+    font-weight: 700;
+    background-color: transparent;
+    color: var(--light-text-color);
+    cursor: pointer;
+    @include transition-colors;
+
+    &:hover {
+      background-color: var(--secondary);
+      color: white;
+    }
+  }
+}

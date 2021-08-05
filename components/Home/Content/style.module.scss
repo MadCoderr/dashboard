@@ -1,0 +1,12 @@
+.home__wrapper {
+  min-height: 100vh;
+  display: flex;
+
+  & > .sidebar__wrapper {
+    flex: 0 0 20rem;
+  }
+
+  & > .main__wrapper {
+    flex-grow: 1;
+  }
+}

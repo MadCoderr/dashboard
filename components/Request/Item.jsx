@@ -8,7 +8,7 @@ const Item = () => {
       <div className={style.header}>
         <h3>
           <strong>Dr Izhar Ullah</strong>{" "}
-          <span>requested to reschedule a class for semester 8</span>
+          <span>requested to reschedule a class for semester 8 section B</span>
         </h3>
         <span>1 day ago</span>
       </div>
@@ -21,11 +21,7 @@ const Item = () => {
           </p>
           <p>
             <span>Semester:</span>
-            <span>8</span>
-          </p>
-          <p>
-            <span>Section:</span>
-            <span>B</span>
+            <span>8, B</span>
           </p>
           <p>
             <span>Date</span>
@@ -47,8 +43,8 @@ const Item = () => {
         </p>
       </div>
       <div className={style.footer}>
-        <button>Approve</button>
-        <button>Reject</button>
+        <button className={style.approve}>Approve</button>
+        <button className={style.reject}>Reject</button>
       </div>
     </div>
   );

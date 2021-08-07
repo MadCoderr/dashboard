@@ -20,9 +20,9 @@ const Request = () => {
 
   return (
     <div className={style.request__content}>
-      {list.map((item) => {
-        <Item data={item} />;
-      })}
+      {list.map((item) => (
+        <Item data={item} />
+      ))}
     </div>
   );
 };

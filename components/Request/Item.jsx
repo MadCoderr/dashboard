@@ -2,13 +2,16 @@ import React from "react";
 
 import style from "./style.module.scss";
 
-const Item = () => {
+const Item = ({ data }) => {
   return (
     <div className={style.item}>
       <div className={style.header}>
         <h3>
-          <strong>Dr Izhar Ullah</strong>{" "}
-          <span>requested to reschedule a class for semester 8 section B</span>
+          <strong>{data.name}</strong>{" "}
+          <span>
+            requested to reschedule a class for semester {data.semester} section{" "}
+            {data.section}
+          </span>
         </h3>
         <span>1 day ago</span>
       </div>
@@ -17,30 +20,25 @@ const Item = () => {
         <div className={style.info}>
           <p>
             <span>Subject:</span>
-            <span>Artificial Intelligence</span>
+            <span>{data.subject}</span>
           </p>
           <p>
             <span>Semester:</span>
-            <span>8, B</span>
+            <span>
+              {data.semester}, {data.section}
+            </span>
           </p>
           <p>
             <span>Date</span>
-            <span>22 September, 2021</span>
+            <span>{data.date.prettier}</span>
           </p>
           <p>
             <span>Time</span>
-            <span>01:30pm - 3:00pm</span>
+            <span>{data.time.prettier}</span>
           </p>
         </div>
         <h4>Comments:</h4>
-        <p className={style.comment}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero magnam
-          nihil odit dicta aliquam, deleniti ex tenetur laudantium laborum!
-          Totam assumenda, in officia consectetur voluptas veniam corporis
-          veritatis nihil temporibus dolore, ipsam neque est sequi amet
-          excepturi vero nesciunt! Eaque excepturi totam facilis at. Omnis
-          eveniet corrupti est provident dolores?
-        </p>
+        <p className={style.comment}>{data.comment}</p>
       </div>
       <div className={style.footer}>
         <button className={style.approve}>Approve</button>

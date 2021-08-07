@@ -9,13 +9,20 @@ import style from "./style.module.scss";
 import { requestCollection } from "@/utils/collections";
 
 const Request = () => {
-  useEffect(() => {}, []);
+  const [list, setList] = useState(null);
+
+  useEffect(() => {
+    requestCollection.onSnapshot((snapShot) => {
+      let newList = snapShot.docs.map((doc) => doc.data());
+      setList(newList);
+    });
+  }, []);
 
   return (
     <div className={style.request__content}>
-      <Item />
-      <Item />
-      <Item />
+      {list.map((item) => {
+        <Item data={item} />;
+      })}
     </div>
   );
 };

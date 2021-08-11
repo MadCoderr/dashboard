@@ -1,8 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 
 import style from "./style.module.scss";
 
-const Item = ({ data }) => {
+// utils
+import { send } from "@/utils/request";
+
+// assets
+import CircleIcon from "@/assets/Circle";
+
+const Item = ({ data, showModal }) => {
+  const [loading, setLoading] = useState(false);
+
+  const sendMessage = () => {
+    setLoading(true);
+
+    let message = `${data.name} has Reschedule ${data.subject} class to ${data.date.prettier} on ${data.time.prettier}`;
+
+    send(message)
+      .then((res) => {
+        console.log(res);
+        showModal(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
+  };
+
   return (
     <div className={style.item}>
       <div className={style.header}>
@@ -41,7 +66,12 @@ const Item = ({ data }) => {
         <p className={style.comment}>{data.comment}</p>
       </div>
       <div className={style.footer}>
-        <button className={style.approve}>Approve</button>
+        <button
+          className={`${style.approve} ${loading ? style.active : ""}`}
+          onClick={sendMessage}
+        >
+          {loading && <CircleIcon />} Approve
+        </button>
         <button className={style.reject}>Reject</button>
       </div>
     </div>

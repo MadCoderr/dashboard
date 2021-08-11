@@ -87,7 +87,9 @@
         line-height: 1.25rem;
         cursor: pointer;
         background: transparent;
-        @include transition-colors;
+        display: flex;
+        align-items: center;
+        @include transition-all;
 
         &.approve {
           border: 1px solid var(--quaternary);
@@ -95,6 +97,11 @@
 
         &.reject {
           border: 1px solid var(--tertiary);
+        }
+
+        & > svg {
+          width: 20px;
+          height: 20px;
         }
 
         &:hover {
@@ -109,6 +116,8 @@
 
         &.active {
           color: #fff;
+          gap: 0.5rem;
+
           &.approve {
             background: var(--quaternary);
           }

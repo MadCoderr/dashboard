@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@freeclimb/sdk": "^2.0.3",
+    "express": "^4.17.1",
     "firebase": "^8.9.0",
+    "messagebird": "^3.6.4",
     "next": "11.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",

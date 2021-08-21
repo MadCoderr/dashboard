@@ -8,19 +8,20 @@ import { send } from "@/utils/request";
 // assets
 import CircleIcon from "@/assets/Circle";
 
-const Item = ({ data, showModal }) => {
+const Item = ({ data, showModal, remove }) => {
   const [loading, setLoading] = useState(false);
 
   const sendMessage = () => {
     setLoading(true);
 
-    let message = `${data.name} has Reschedule ${data.subject} class to ${data.date.prettier} on ${data.time.prettier}`;
+    let message = `${data.name} has Reschedule ${data.subject} class to ${data.date.prettier} on ${data.time.prettier} \n\n ${data.comment}`;
 
     send(message)
       .then((res) => {
         console.log(res);
         showModal(data);
         setLoading(false);
+        remove(data);
       })
       .catch((err) => {
         console.log(err);
@@ -72,7 +73,7 @@ const Item = ({ data, showModal }) => {
         >
           {loading && <CircleIcon />} Approve
         </button>
-        <button className={style.reject}>Reject</button>
+        {/* <button className={style.reject}>Reject</button> */}
       </div>
     </div>
   );

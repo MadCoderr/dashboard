@@ -27,6 +27,13 @@ const Request = () => {
     setIsOpen(true);
   };
 
+  const removeItem = (_data) => {
+    let newList = list.filter((item) => item.id !== _data.id);
+    setList(newList);
+
+    requestCollection.doc(_data.id).delete();
+  };
+
   if (!list) {
     return <Loading />;
   }
@@ -35,7 +42,12 @@ const Request = () => {
     <div className={style.request__content}>
       {list.length === 0 && <h1>No Request Found</h1>}
       {list.map((item) => (
-        <Item key={item.id} data={item} showModal={showModal} />
+        <Item
+          key={item.id}
+          data={item}
+          showModal={showModal}
+          remove={removeItem}
+        />
       ))}
       {isOpen && <Modal setIsOpen={setIsOpen} data={data} />}
     </div>

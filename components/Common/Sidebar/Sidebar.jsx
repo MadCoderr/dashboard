@@ -9,7 +9,7 @@ const Sidebar = () => {
       <ul>
         <li className={style.active}>Requests</li>
       </ul>
-      <button>LogOut</button>
+      {/* <button>LogOut</button> */}
     </div>
   );
 };
